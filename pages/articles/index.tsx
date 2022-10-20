@@ -1,9 +1,8 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
-
+import Head from "next/head";
 import { Article } from "../../interfaces";
 import { sampleUserData } from "../../utils/sample-data";
-import Layout from "../../components/Layout";
 import List from "../../components/List";
 
 type Props = {
@@ -11,7 +10,13 @@ type Props = {
 };
 
 const Articles = ({ items }: Props) => (
-  <Layout title="Articles List | Next.js + TypeScript Example">
+  <>
+    <Head>
+      <title>Articles List | Next.js + TypeScript Example</title>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
+
     <h1>Articles List</h1>
     <p>
       Example fetching data from inside <code>getStaticProps()</code>.
@@ -23,7 +28,7 @@ const Articles = ({ items }: Props) => (
         <a>Go home</a>
       </Link>
     </p>
-  </Layout>
+  </>
 );
 
 export const getStaticProps: GetStaticProps = async () => {

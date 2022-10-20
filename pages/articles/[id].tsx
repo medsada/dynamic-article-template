@@ -1,8 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from "next";
-
+import Head from "next/head";
 import { Article } from "../../interfaces";
 import { sampleUserData } from "../../utils/sample-data";
-import Layout from "../../components/Layout";
 import Template1 from "../../components/ArticleTemplate1";
 import Template2 from "../../components/ArticleTemplate2";
 
@@ -14,11 +13,20 @@ type Props = {
 const Article = ({ item, errors }: Props) => {
   if (errors) {
     return (
-      <Layout title="Error | Next.js + TypeScript Example">
+      <>
+        <Head>
+          <title>Error | Next.js + TypeScript Example</title>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+        </Head>
+
         <p>
           <span style={{ color: "red" }}>Error:</span> {errors}
         </p>
-      </Layout>
+      </>
     );
   }
   let Template;
@@ -32,7 +40,16 @@ const Article = ({ item, errors }: Props) => {
     default:
       Template = <Template1 item={item} />;
   }
-  return <Layout title={item.title}>{item && Template}</Layout>;
+  return (
+    <>
+      <Head>
+        <title>{item.title}</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      {item && Template}
+    </>
+  );
 };
 
 export default Article;
