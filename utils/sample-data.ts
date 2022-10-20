@@ -5,7 +5,7 @@ export const sampleUserData: Article[] = [
   {
     id: 1,
     name: "Alice",
-    title: "mercato juve",
+    title: "Insights about my personal and work life, and the in-betweens",
     category: "sport",
     tags: "foot",
     author: "journalist_1",
