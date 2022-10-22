@@ -9,7 +9,7 @@ type Props = {
 const Layout = ({ children }: Props) => (
   <>
     <Header />
-    <Box h='100vh' p='0px'>
+    <Box minH='100vh' p='0px'>
     {children}
     </Box>
     <Footer />

@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Article } from "../../interfaces";
 import { sampleUserData } from "../../utils/sample-data";
 import List from "../../components/List";
+import { Box, Flex,Heading,Text,HStack,Button,Container} from '@chakra-ui/react'
 
 type Props = {
   items: Article[];
@@ -17,17 +18,19 @@ const Articles = ({ items }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
 
-    <h1>Articles List</h1>
-    <p>
-      Example fetching data from inside <code>getStaticProps()</code>.
-    </p>
-    <p>You are currently on: /articles</p>
-    <List items={items} />
-    <p>
+    <Container py='100px'>
       <Link href="/">
         <a>Go home</a>
       </Link>
-    </p>
+    <Heading as='h1' fontSize ='32px' mb='32px' mt='12px'>Our Articles</Heading>
+    {/* <p>
+      Example fetching data from inside <code>getStaticProps()</code>.
+    </p> */}
+    {/* <p>You are currently on:</p> */}
+    <List items={items} />
+    </Container>
+   
+   
   </>
 );
 
